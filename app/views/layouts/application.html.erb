@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+  	  <% unless current_user %>
+  			<%= link_to sign_up_path do %>회원가입<% end %>
+			<%= link_to user_login_path do %>로그인<% end %>
+			<%= session[:user_id] %>
+	  <% else %>
+	  <%= current_user.name %> 님 로그인 되었습니다.
+	  <br>
+	  <%= link_to user_sign_out_path do %>로그아웃<% end %>
+
+	  <% end %>
+	  <br>
+	  <br>
+	  
+	  
+    <%= yield %>
+  </body>
+</html>
