@@ -1,0 +1,40 @@
+<div>
+	<%= link_to "내가 좋아하는 코디", like_user_path %>
+	<%= link_to "전체 코디", product_index_path %>
+	
+	<br>
+	<br>
+	<% if @like_product.present? %>
+			<%  @like_product.each do |product| %>
+			
+				<%= product.likes.size %> 명이 좋아합니다.<br>
+					<% if current_user.is_like?(product) %>
+						<%= link_to "좋아요 취소", product_like_path(product) %>
+					<% else %>
+						<%= link_to "좋아요", product_like_path(product) %>
+				<% end %>
+					<br>
+			
+				제품명 : <%= product.name %><br>
+			
+					<img src="패트 짤.jpg"/>	
+					<br>
+				<%= product.tag %>
+				<%= product.gender %>
+				<br>
+				<br>
+				<br>
+				
+			<% end %>
+	<% else %>
+	좋아하는 코디가 없습니다.
+	<% end %>
+
+
+
+				
+				
+
+</div>
+<br>
+<br>

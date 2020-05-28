@@ -5,7 +5,7 @@ class Product < ActiveRecord::Migration[6.0]
         t.string :tag
         t.string :images
         t.string :gender
-        t.string :like
+        t.integer :like
        end
   end
 end
